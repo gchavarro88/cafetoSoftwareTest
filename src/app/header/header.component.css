@@ -1,0 +1,69 @@
+/*Define variables for all app*/
+body {
+  font: 100% Arial, Helvetica, sans-serif;
+  color: #283149;
+  background-color: #283149;
+}
+
+/* Functions */	
+/* Style the header */
+header {
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: #283149;
+  height: 70px;
+  border-bottom: 2px solid #404b69;
+  background-color: #dbedf3;
+}
+
+.divImg {
+  text-align: right;
+  width: 20%;
+  float: left;
+}
+
+.divH2 {
+  text-align: left;
+  width: 80%;
+  float: right;
+  height: 70px;
+}
+
+header div img {
+  width: 120px;
+}
+header div h2 {
+  font-size: 68px;
+  font-family: "Fredericka the Great", cursive;
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 950px) {
+  .divH2 {
+    text-align: center;
+  }
+
+  header div img {
+    width: 90px;
+  }
+  header div h2 {
+    font-size: 48px;
+    font-family: "Fredericka the Great", cursive;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .divH2 {
+    text-align: center;
+  }
+
+  header div img {
+    width: 60px;
+  }
+  header div h2 {
+    font-size: 28px;
+    font-family: "Fredericka the Great", cursive;
+  }
+}
+
+/*# sourceMappingURL=header.component.css.map */

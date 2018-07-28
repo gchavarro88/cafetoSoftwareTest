@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/*Define variables for all app*/
+body {
+  font: 100% Arial, Helvetica, sans-serif;
+  color: #283149;
+  background-color: #283149;
+}
+
+/* Functions */	
+
+/*# sourceMappingURL=styles.css.map */

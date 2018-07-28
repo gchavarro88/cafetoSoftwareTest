@@ -1,0 +1,18 @@
+/*Define variables for all app*/
+body {
+  font: 100% Arial, Helvetica, sans-serif;
+  color: #283149;
+  background-color: #283149;
+}
+
+/* Functions */	
+/* Style the footer */
+footer {
+  background-color: #777;
+  border-top: 2px solid #283149;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/*# sourceMappingURL=footer.component.css.map */
