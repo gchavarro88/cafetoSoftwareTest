@@ -6,9 +6,12 @@ import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Movie } from './Movie';
 import { MovieList } from './MovieList';
 import { MovieDetail } from './MovieDetail';
+import { ActorList } from './ActorList';
+import { Actor } from './Actor';
 
 
 const ID_MOVIE: string = "ID_MOVIE";
+const VALUE: string = "VALUE";
 
 
 @Injectable({
@@ -36,6 +39,24 @@ export class MovieService {
 		this.url = URL_LIST.URL_MOVIE_DETAIL;
 		this.url = this.url.replace(ID_MOVIE, idMovie);
 		return this.http.get<MovieDetail>(this.url);
+	}
+
+	searchActors(value: string): Observable<ActorList> {
+	    if (!value.trim()) {
+	      return of(null);
+	    }
+	    this.url = URL_LIST.URL_SEARCH_ACTOR;
+	    this.url = this.url.replace(VALUE, value);
+	    return this.http.get<ActorList>(this.url);
+	}
+
+	searchMovies(value: string): Observable<MovieList> {
+	    if (!value.trim()) {
+	      return of(null);
+	    }
+	    this.url = URL_LIST.URL_SEARCH_MOVIE;
+	    this.url = this.url.replace(VALUE, value);
+	    return this.http.get<MovieList>(this.url);
 	}
 
 	sendDetail(movie: Movie) {
