@@ -12,5 +12,6 @@ export const PARAMETERS =
 export const URL_LIST = 
 {
 	URL_MOVIES_TOP: 'https://api.themoviedb.org/3/movie/top_rated?api_key=2d3db1a828f2035f7cbb6d1b47b12aab&language=en-US&page=1',
-	URL_TVSHOW_TOP: 'https://api.themoviedb.org/3/tv/popular?api_key=2d3db1a828f2035f7cbb6d1b47b12aab&language=en-US&page=1'
+	URL_TVSHOW_TOP: 'https://api.themoviedb.org/3/tv/popular?api_key=2d3db1a828f2035f7cbb6d1b47b12aab&language=en-US&page=1',
+	URL_MOVIE_DETAIL: 'https://api.themoviedb.org/3/movie/ID_MOVIE?api_key=2d3db1a828f2035f7cbb6d1b47b12aab&language=en-US'
 };

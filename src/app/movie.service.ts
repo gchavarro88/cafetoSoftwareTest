@@ -5,8 +5,10 @@ import { URL_LIST } from './parameters';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Movie } from './Movie';
 import { MovieList } from './MovieList';
-import { TvShow } from './TvShow';
-import { TvShowList} from './TvShowList';
+import { MovieDetail } from './MovieDetail';
+
+
+const ID_MOVIE: string = "ID_MOVIE";
 
 
 @Injectable({
@@ -15,7 +17,9 @@ import { TvShowList} from './TvShowList';
 export class MovieService {
 
   	url: string;
-	response: Observable<any>;
+  	movie: Movie;
+	private messageSource = new BehaviorSubject(this.movie);
+	contentMessage = this.messageSource.asObservable();
 
 		
 	constructor(private http: HttpClient) {
@@ -25,14 +29,17 @@ export class MovieService {
 	
 	getMoviesListTop() :Observable<MovieList>{
 		this.url = URL_LIST.URL_MOVIES_TOP;
-		console.log("$$$$$$$$$$$ "+this.url);
 		return this.http.get<MovieList>(this.url);		
 	}
 
-	getTvShowListTop() :Observable<TvShowList>{
-		this.url = URL_LIST.URL_TVSHOW_TOP;
-		console.log("$$$$$$$$$$$ "+this.url);
-		return this.http.get<TvShowList>(this.url);		
+	getMovieDetail(idMovie) {
+		this.url = URL_LIST.URL_MOVIE_DETAIL;
+		this.url = this.url.replace(ID_MOVIE, idMovie);
+		return this.http.get<MovieDetail>(this.url);
+	}
+
+	sendDetail(movie: Movie) {
+	  	this.messageSource.next(movie);
 	}
 
 }

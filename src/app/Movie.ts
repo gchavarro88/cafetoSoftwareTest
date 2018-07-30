@@ -1,3 +1,5 @@
+import { MovieDetail } from './MovieDetail';
+
 export interface Movie{
 	vote_count: number,
     id: number,
@@ -12,5 +14,6 @@ export interface Movie{
     backdrop_path: string,
     adult: boolean,
     overview: string,
-    release_date: string
+    release_date: string,
+    movieDetail: MovieDetail
 }

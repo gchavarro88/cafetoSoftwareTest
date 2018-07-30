@@ -6,6 +6,23 @@ body {
 }
 
 /* Functions */	
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #283149;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dbedf3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #404b69;
+}
+
 /* Container for flexboxes */
 * {
   box-sizing: border-box;
@@ -17,7 +34,8 @@ section {
 }
 
 app-content {
-  width: 65%;
+  width: 70%;
+  height: auto;
 }
 
 app-menu {
@@ -27,7 +45,7 @@ app-menu {
   background-color: #00818a;
   color: #404b69;
   border-right: 2px solid #283149;
-  height: fit-content;
+  height: auto;
 }
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */

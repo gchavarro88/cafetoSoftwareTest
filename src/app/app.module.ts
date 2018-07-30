@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ContentComponent } from './content/content.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { Languages } from './languages';
 
 //Services
 import { MovieService } from './movie.service';
@@ -18,7 +19,8 @@ import { MovieService } from './movie.service';
     MenuComponent,
     ContentComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    Languages
   ],
   imports: [
     HttpClientModule,

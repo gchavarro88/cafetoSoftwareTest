@@ -1,4 +1,6 @@
 <div id="searchBox">
+	<span class="titleRadio">Movie</span><input name="options" ng-control="searchParameter" type="radio" [value]="Movie" onclick="setSearchParameter('Movie')">
+	<span class="titleRadio">Actor</span><input name="options" ng-control="searchParameter" type="radio" [value]="Actor" onclick="setSearchParameter('Actor')">
 	<input #searchBox id="search-box" placeholder="{{searchBoxText}}" />
 	<!--<ul class="search-result">
 	<li *ngFor="let hero of heroes$ | async" >
@@ -13,19 +15,8 @@
 	<div class="divMenu">
 		<div class="row">
 			<div class="column" *ngFor="let movie of movieListTop">
-				<img src="{{movie.poster_path}}" alt="{{movie.title}}" class="tile">
+				<img src="{{movie.poster_path}}" alt="{{movie.title}}" class="tile" (click)="getMovieDetailTop(movie)">
 			</div>
 		</div>
 	</div>
 </div>
-<div id="tvBox">
-	<h4 class="titleMenu">{{tvTitle}}</h4>
-	<div class="divMenu">
-		<div class="row">
-			<div class="column" *ngFor="let tvShow of tvShowListTop">
-				<img src="{{tvShow.poster_path}}" alt="{{tvShow.title}}" class="tile">
-			</div>
-		</div>
-	</div>
-</div>
-

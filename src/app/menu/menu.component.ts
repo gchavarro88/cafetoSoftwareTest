@@ -4,31 +4,30 @@ import { Observable, of } from 'rxjs';
 import { Movie } from '../Movie';
 import { MovieList } from '../MovieList';
 import { PARAMETERS } from '../parameters';
-import { TvShow } from '../TvShow';
-import { TvShowList } from '../TvShowList';
+import { MovieDetail } from '../MovieDetail';
+
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
 export class MenuComponent implements OnInit {
 
-  cities: string[] = ["París", "London", "Roma", "Tokyo"];
-  response: any;
   searchBoxText: string = "Type movie name or actor name here, to start the search...";
   moviesTitle: string = "Movies Top";
-  tvTitle: string = "TV Shows Top";
   movieListTop: Movie[];
-  tvShowListTop: TvShow[];
-
+  movieSelected: Movie;
+  counter: any;
+  position: number = 0;
+  searchParameter: string = "Movie";
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
   	//this.movieService.currentMessage.subscribe(message => this.response = message);
-    this.getMoviesListTop();    
-    this.getTvShowListTop();
+    this.getMoviesListTop();
   }
 
   getMoviesListTop(){
@@ -37,33 +36,39 @@ export class MenuComponent implements OnInit {
           if(result){
             this.movieListTop = result.results.slice(0,12);
             this.movieListTop = this.getImageMovieFullPath(this.movieListTop);
+            this.getMovieDetailTop(this.movieListTop[1]);            
           }
       }
     );  
   }
-
-  getTvShowListTop(){
-    this.movieService.getTvShowListTop().subscribe(
-      (result: TvShowList) => {
-          if(result){
-            this.tvShowListTop = result.results.slice(0,12);
-            this.tvShowListTop = this.getImageTvShowFullPath(this.tvShowListTop);
-          }
-      }
-    );  
-  }  
 
   getImageMovieFullPath(movies: Movie[]) :Movie[]{
     for(let movie of movies){
       movie.poster_path = PARAMETERS.IMG_URL_BASE+movie.poster_path;
+      movie.backdrop_path = PARAMETERS.IMG_URL_BASE+movie.backdrop_path;
     }
     return movies;
   }
 
-  getImageTvShowFullPath(tvShows: TvShow[]) :TvShow[]{
-    for(let tvShow of tvShows){
-      tvShow.poster_path = PARAMETERS.IMG_URL_BASE+tvShow.poster_path;
+  getMovieDetailTop(movie: Movie){
+    if(movie){
+      clearInterval(this.counter);
+      this.movieSelected = movie;
+      this.movieService.getMovieDetail(movie.id).subscribe(
+        (result: MovieDetail) => {
+          if(result){
+            console.log("####"+JSON.stringify(this.movieSelected));
+            console.log("####"+JSON.stringify(result));
+            this.movieSelected.movieDetail = result;
+            this.movieService.sendDetail(this.movieSelected);
+          }
+        });
     }
-    return tvShows;
   }
+
+  setSearchParameter(parameter){
+    this.searchParameter = parameter;
+    console.log(this.searchParameter);
+  }
+
 }

@@ -8,8 +8,8 @@ header
     color: $main-color1
     height: 70px
     border-bottom: 2px solid $main-color2
-    background-color: $main-color4
-
+    background-color: $main-color3
+    +animationName(headerAnimation, 20s, 1s)
 
 .divImg
   text-align: right
@@ -26,11 +26,14 @@ header
 header div
   img
     width:120px
+    margin-top: -5px
 
   h2
-    font-size: 68px
+    font-size: 78px
     font-family: $font-family3
-    margin-top: 0
+    margin-top: -5px
+
++headerAnimation()
 
 @media only screen and (max-width: $medium-width-mobile)  
   .divH2
