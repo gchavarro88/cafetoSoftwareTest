@@ -38,16 +38,16 @@ article > fieldset > legend {
 }
 
 ::-webkit-scrollbar-track {
-  background: #283149;
+  background: #dbedf3;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #dbedf3;
+  background: #00818a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #404b69;
+  background: #283149;
 }
 
 /* Style the content */
